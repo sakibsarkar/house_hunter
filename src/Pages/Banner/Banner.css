@@ -1,0 +1,7 @@
+.bannerContainer {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://i.ibb.co/8MLyHsq/Cover-01.pngs");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

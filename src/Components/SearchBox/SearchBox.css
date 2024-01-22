@@ -1,0 +1,36 @@
+.searchBox {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(242, 242, 242);
+    border-radius: 7px;
+    overflow: hidden;
+    height: 35px;
+}
+
+.searchBox input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    height: 100%;
+    padding: 0 0 0 5px;
+}
+
+
+.searchBox input::placeholder {
+    font-style: italic;
+}
+
+.searchBox button {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #695df6;
+    border: none;
+    cursor: pointer;
+}
