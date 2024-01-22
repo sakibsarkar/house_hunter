@@ -10,6 +10,7 @@ const Authcontext = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = async () => {
+            setLoading(true)
             const { data } = await axios.get("/authChange")
             setUser(data)
             setLoading(false)
@@ -21,7 +22,7 @@ const Authcontext = ({ children }) => {
 
     const items = {
         user,
-        setUser
+        setUser,loading
     }
     return (
         <Context.Provider value={items}>

@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import MyRooms from "../DashBoardPages/MyRooms/MyRooms";
+import OwnerPrivate from "../PrivateRoutes/OwnerPrivate";
 import Register from "../Pages/Register/Register";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -31,7 +32,7 @@ export const Routes = createBrowserRouter([
         children: [
             {
                 path: "/dashboard/my_rooms",
-                element: <MyRooms />
+                element: <OwnerPrivate><MyRooms /></OwnerPrivate>
             }
         ]
     }

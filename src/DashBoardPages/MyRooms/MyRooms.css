@@ -1,0 +1,108 @@
+.my_rooms_container {
+    position: static;
+}
+
+.add_room_form {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3a3a3a36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.add_room_form form {
+    display: flex;
+    width: 550px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    background: white;
+    box-shadow: 0 2px 16.8px 3.2px #95959578;
+    padding: 20px;
+}
+
+.add_room_form form>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.add_room_form form>div input {
+    width: 100%;
+    height: 30px;
+    background: #e2e2e2;
+    border: 1px solid transparent;
+    outline: none;
+
+}
+
+.add_room_form form>div textarea {
+    width: 100%;
+    height: 30px;
+    background: #e2e2e2;
+    border: 1px solid transparent;
+    outline: none;
+    min-height: 150px;
+    resize: vertical;
+
+}
+
+
+
+
+.add_room_form form .bro {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px;
+
+}
+
+.add_room_form form .bro>div {
+    width: 100%;
+
+}
+
+
+.add_room_form form .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.add_room_form form .row p {
+    color: white;
+    width: fit-content;
+    background: #695df6;
+    padding: 4px 0px;
+    border-radius: 2px;
+}
+
+.add_room_form form .photoBox {
+    height: 70px;
+    padding: 21px 0 0 187px;
+    background-color: transparent !important;
+    border: 1px dashed #695df6;
+}
+
+
+.add_room_form form button {
+    width: 100%;
+    background-color: #695df6;
+    border: none;
+    color: white;
+    padding: 7px 0;
+    cursor: pointer;
+}

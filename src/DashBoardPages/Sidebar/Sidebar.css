@@ -1,5 +1,23 @@
 .sidebarCon {
     width: 300px;
-    background-color: red;
+    background-color: #e9e9e9;
     height: 100vh;
+}
+
+.dashLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.dashLinks a {
+    padding: 10px 0 10px 10px;
+    width: 100%;
+    color: rgb(19, 18, 26);
+}
+
+.dashLinks .active {
+    background-color: #695df6;
+    color: white;
 }
