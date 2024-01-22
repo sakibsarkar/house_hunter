@@ -6,9 +6,9 @@ import { toast } from "sonner";
 import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Register = () => {
-    const [selectRole, setSelectRole] = useState("House Renter")
     const axios = UseAxios()
     const { setUser } = useContext(Context)
+    const [selectRole, setSelectRole] = useState("House Renter")
 
 
     const navigate = useNavigate()
@@ -16,17 +16,27 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault()
+        const bdPhoneNumberRegex = /^(?:\+?88)?01[3-9]\d{8}$/;
         const form = e.target
         const name = form.name.value
         const email = form.email.value
+        const phoneNumber = form.number.value
         const password = form.password.value
         const role = selectRole
+
+
 
         const obj = {
             name,
             email,
+            phoneNumber: `+880${phoneNumber}`,
             password,
             role
+        }
+
+
+        if (!bdPhoneNumberRegex.test(`+880${phoneNumber}`)) {
+            return toast.error("Invalid phone Number")
         }
 
         try {
@@ -66,6 +76,13 @@ const Register = () => {
                 <div>
                     <p>Your password</p>
                     <input type="pasword" name="password" required />
+                </div>
+                <div >
+                    <p>Your Phone Number</p>
+                    <div className="numberFeild">
+                        <p>+880</p>
+                        <input type="number" name="number" required />
+                    </div>
                 </div>
                 <div>
                     <p>Your Role</p>

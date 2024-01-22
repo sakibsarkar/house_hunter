@@ -1,0 +1,7 @@
+.room_container {
+    display: grid;
+    grid-template-columns: repeat(4, 400px);
+    gap: 20px;
+    justify-content: center;
+    min-height: 100vh;
+}

@@ -64,3 +64,13 @@ nav .auth_btn .active {
     background-color: #695df6;
     color: #ffffff;
 }
+
+
+nav .userBox {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
