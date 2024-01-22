@@ -18,7 +18,7 @@ const Navbar = () => {
                 <SearchBox />
 
                 <div className="auth_btn">
-                    <Link to={"/register"}><BsHouseCheck />Register</Link>
+                    <NavLink to={"/register"}><BsHouseCheck />Register</NavLink>
                 </div>
             </div>
         </nav>

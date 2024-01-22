@@ -32,13 +32,13 @@ nav .nav_links {
 
 nav .nav_links a {
     color: #0e1217;
+    padding: 5px 7px;
     font-weight: 500;
 }
 
 nav .nav_links .active {
     color: #ffffff !important;
     background-color: #695df6;
-    padding: 5px 7px;
     border-radius: 3px;
 }
 
@@ -52,4 +52,15 @@ nav .auth_btn a {
     justify-content: center;
     align-items: center;
     gap: 5px;
+    transition: 0.3s;
+}
+
+nav .auth_btn a:hover {
+    color: white;
+    box-shadow: inset 100px 0 #695df6;
+}
+
+nav .auth_btn .active {
+    background-color: #695df6;
+    color: #ffffff;
 }
