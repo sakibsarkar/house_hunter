@@ -1,6 +1,8 @@
+import DashLayout from "../Layout/DashLayout/DashLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
+import MyRooms from "../DashBoardPages/MyRooms/MyRooms";
 import Register from "../Pages/Register/Register";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -20,6 +22,16 @@ export const Routes = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />
+            }
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <DashLayout />,
+        children: [
+            {
+                path: "/dashboard/my_rooms",
+                element: <MyRooms />
             }
         ]
     }

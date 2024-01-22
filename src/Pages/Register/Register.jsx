@@ -51,8 +51,8 @@ const Register = () => {
                 password
             })
 
+            setUser(obj)
             navigate("/")
-            setUser(data)
 
         }
         catch (err) {

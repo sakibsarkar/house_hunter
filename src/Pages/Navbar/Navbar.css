@@ -73,4 +73,44 @@ nav .userBox {
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    position: relative;
+}
+
+nav .userBox .dropDown {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    top: 28px;
+    box-shadow: 0 2px 16.8px 3.2px #95959578;
+    z-index: 99;
+
+}
+
+nav .userBox .dropDown a {
+    width: 100%;
+    border-top: 1px solid #b5b5b5;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+nav .userBox .dropDown a:hover {
+    background-color: #ebebeb;
+}
+
+nav .userBox .dropDown button {
+    width: 100%;
+    border: none;
+    padding: 5px 0;
+    border-top: 1px solid #b5b5b5;
+    background-color: transparent;
+}
+
+nav .userBox .dropDown button:hover {
+    background-color: #ebebeb;
 }

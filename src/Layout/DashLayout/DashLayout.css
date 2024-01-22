@@ -1,0 +1,12 @@
+.dashboard_container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashOutlets {
+    width: calc(100% - 300px);
+    height: 100vh;
+    overflow-Y: auto;
+}

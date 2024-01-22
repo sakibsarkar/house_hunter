@@ -27,6 +27,13 @@ const Navbar = () => {
                     user?.email ?
                         <div className="userBox">
                             {userName}<GoChevronDown />
+                            <div className="dropDown">
+                                {
+                                    user?.role == "House Owner" ? <Link to={"/dashboard/my_rooms"}>Dashboard</Link>
+                                        : <Link to={"/dashboard/my_booking"}>Dashboard</Link>
+                                }
+                                <button>Logout</button>
+                            </div>
                         </div>
                         :
                         <div className="auth_btn">
