@@ -1,7 +1,21 @@
+.room_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+}
+
 .room_container {
     display: grid;
-    grid-template-columns: repeat(4, 400px);
+    grid-template-columns: repeat(3, 400px);
     gap: 20px;
     justify-content: center;
     min-height: 100vh;
+}
+
+
+.room_wrapper .filterBar {
+    width: 400px;
+    height: 500px;
+    background-color: rgb(49, 72, 91);
 }
