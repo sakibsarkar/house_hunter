@@ -1,13 +1,14 @@
 import "./Register.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Register = () => {
     const [selectRole, setSelectRole] = useState("House Renter")
     const axios = UseAxios()
-
+    const { setUser } = useContext(Context)
 
 
     const navigate = useNavigate()
@@ -41,6 +42,7 @@ const Register = () => {
             })
 
             navigate("/")
+            setUser(data)
 
         }
         catch (err) {

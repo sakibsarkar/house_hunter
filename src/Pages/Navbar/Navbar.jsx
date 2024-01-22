@@ -1,9 +1,12 @@
 import "./Navbar.css";
 import SearchBox from "../../Components/SearchBox/SearchBox";
+import { useContext } from "react";
 import { BsHouseCheck } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
+import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Navbar = () => {
+    const { user } = useContext(Context)
     return (
         <nav>
             <div className="nav_holder">
@@ -17,9 +20,16 @@ const Navbar = () => {
 
                 <SearchBox />
 
-                <div className="auth_btn">
-                    <NavLink to={"/register"}><BsHouseCheck />Register</NavLink>
-                </div>
+                {
+                    user ?
+                        <div>
+                            {user?.name}
+                        </div>
+                        :
+                        <div className="auth_btn">
+                            <NavLink to={"/register"}><BsHouseCheck />Register</NavLink>
+                        </div>
+                }
             </div>
         </nav>
     );

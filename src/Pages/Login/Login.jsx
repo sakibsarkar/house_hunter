@@ -1,29 +1,35 @@
 import "./Login.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Login = () => {
-
     const axios = UseAxios()
     const navigate = useNavigate()
 
+    const { setUser } = useContext(Context)
+
 
     const handleLogin = async (e) => {
+
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
         const { data } = await axios.post("/login", { email, password })
         if (data.matched === false) {
-            return toast.error("password didn't matched")
+            return toast.error("Password didn't matched")
         }
 
         if (data.found === false) {
-            return toast.error("envalid email")
+            return toast.error("Invalid email")
         }
 
         await axios.post("/token", { email, password })
+
+        setUser(data)
     }
     return (
         <div className="loging_wrapper">
