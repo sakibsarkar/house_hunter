@@ -1,6 +1,7 @@
 import "./MyRooms.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
-import { useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useContext, useState } from "react";
 import { toast } from "sonner";
 import { Context } from "../../Hooks & Functions/Authcontext";
 import { formateDate } from "../../Hooks & Functions/dateFormater";
@@ -9,6 +10,17 @@ import { uploadImg } from "../../Hooks & Functions/uploadImg";
 const MyRooms = () => {
     const { user } = useContext(Context)
     const axios = UseAxios()
+
+    const [isActive, setIsActive] = useState("")
+
+    const { data: roomData } = useQuery({
+        queryKey: ['myRooms', isActive],
+        queryFn: async () => {
+            const { data } = await axios.get(`/owner_rooms?isActive=${isActive}`)
+            return data
+        }
+    })
+    console.log(roomData);
 
 
     const handleAddProduct = async (e) => {
