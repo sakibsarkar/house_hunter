@@ -2,9 +2,12 @@ import DashLayout from "../Layout/DashLayout/DashLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
+import ManageRoom from "../DashBoardPages/ManageRoom/ManageRoom";
 import MyRooms from "../DashBoardPages/MyRooms/MyRooms";
 import OwnerPrivate from "../PrivateRoutes/OwnerPrivate";
 import Register from "../Pages/Register/Register";
+import RoomDetails from "../Pages/RoomDetails/RoomDetails";
+import Userprivate from "../PrivateRoutes/Userprivate";
 import { createBrowserRouter } from "react-router-dom";
 
 export const Routes = createBrowserRouter([
@@ -23,6 +26,10 @@ export const Routes = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />
+            },
+            {
+                path: '/room/:id',
+                element: <Userprivate><RoomDetails /></Userprivate>
             }
         ]
     },
@@ -33,6 +40,10 @@ export const Routes = createBrowserRouter([
             {
                 path: "/dashboard/my_rooms",
                 element: <OwnerPrivate><MyRooms /></OwnerPrivate>
+            },
+            {
+                path: "/dashboard/manage_room",
+                element: <OwnerPrivate><ManageRoom /></OwnerPrivate>
             }
         ]
     }

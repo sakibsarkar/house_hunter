@@ -1,15 +1,23 @@
 import "./Navbar.css";
 import SearchBox from "../../Components/SearchBox/SearchBox";
-import { useContext } from "react";
+import UseAxios from "../../Hooks & Functions/useAxios";
+import { useContext, useState } from "react";
 import { BsHouseCheck } from "react-icons/bs";
 import { GoChevronDown } from "react-icons/go";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Navbar = () => {
-    const { user } = useContext(Context)
+    const { user, setUser } = useContext(Context)
 
     const userName = user?.name?.split(" ")[0] || ""
+    const axios = UseAxios()
+    const [showDropdown, setShowDropdown] = useState(false)
+
+    const handleLogout = async () => {
+        await axios.post("/logout")
+        setUser(null)
+    }
     return (
         <nav>
             <div className="nav_holder">
@@ -25,15 +33,19 @@ const Navbar = () => {
 
                 {
                     user?.email ?
-                        <div className="userBox">
+                        <div className="userBox" onMouseEnter={() => setShowDropdown(true)} >
                             {userName}<GoChevronDown />
-                            <div className="dropDown">
-                                {
-                                    user?.role == "House Owner" ? <Link to={"/dashboard/my_rooms"}>Dashboard</Link>
-                                        : <Link to={"/dashboard/my_booking"}>Dashboard</Link>
-                                }
-                                <button>Logout</button>
-                            </div>
+                            {
+                                showDropdown ?
+                                    <div className="dropDown" onMouseLeave={() => setShowDropdown(false)}>
+                                        {
+                                            user?.role == "House Owner" ? <Link to={"/dashboard/my_rooms"}>Dashboard</Link>
+                                                : <Link to={"/dashboard/my_booking"}>Dashboard</Link>
+                                        }
+                                        <button onClick={handleLogout}>Logout</button>
+                                    </div>
+                                    : ""
+                            }
                         </div>
                         :
                         <div className="auth_btn">

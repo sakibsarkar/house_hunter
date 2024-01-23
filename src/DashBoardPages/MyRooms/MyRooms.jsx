@@ -1,7 +1,11 @@
 import "./MyRooms.css";
+import OwnedRoonCard from "../../Card/OwnedRoonCard/OwnedRoonCard";
+import RoomUpdateForm from "../../Components/RoomUpdateForm/RoomUpdateForm";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useState } from "react";
+import { GoPlus } from "react-icons/go";
+import { RxCross2 } from "react-icons/rx";
 import { toast } from "sonner";
 import { Context } from "../../Hooks & Functions/Authcontext";
 import { formateDate } from "../../Hooks & Functions/dateFormater";
@@ -11,16 +15,17 @@ const MyRooms = () => {
     const { user } = useContext(Context)
     const axios = UseAxios()
 
+    const [showForm, setShowForm] = useState(false)
     const [isActive, setIsActive] = useState("")
 
-    const { data: roomData } = useQuery({
+    const { data: roomData, refetch } = useQuery({
         queryKey: ['myRooms', isActive],
         queryFn: async () => {
             const { data } = await axios.get(`/owner_rooms?isActive=${isActive}`)
             return data
         }
     })
-    console.log(roomData);
+
 
 
     const handleAddProduct = async (e) => {
@@ -66,7 +71,8 @@ const MyRooms = () => {
         }
 
         const { data: uploadData } = await axios.post("/add_room", obj)
-        console.log(uploadData);
+        setShowForm(false)
+        refetch()
         toast.dismiss(tostId)
         toast.success("Successfly added your room")
 
@@ -75,67 +81,89 @@ const MyRooms = () => {
 
     return (
         <div className="my_rooms_container">
-            <div className="add_room_form">
-                <form onSubmit={handleAddProduct} >
-                    <div>
-                        <p>Room Name</p>
-                        <input type="text" className="name" required name="name" />
-                    </div>
 
-                    <div>
-                        <p>Address</p>
-                        <input type="text" name="address" required />
-                    </div>
-
-                    <div>
-                        <p>City</p>
-                        <input type="text" name="city" required />
-                    </div>
-                    <div>
-                        <input type="file" accept="image/*" name="photo" className="photoBox" required />
-                    </div>
-                    <div className="bro">
-                        <div>
-                            <p>Room Size</p>
-                            <input type="number" name="room_size" required />
-                        </div>
-                        <div>
-                            <p>Bedrooms</p>
-                            <input type="number" name="bedrooms" required />
-                        </div>
-
-                        <div>
-                            <p>Bathrooms</p>
-                            <input type="number" name="bathrooms" required />
-                        </div>
-                    </div>
-
-                    <div className="bro">
-                        <div>
-                            <p>Monthly Rent</p>
-                            <input type="number" name="rent" required />
-                        </div>
-                        <div>
-                            <p>Availablity Date</p>
-                            <input type="date" name="date" required />
-                        </div>
-                    </div>
-
-                    <div>
-                        <p>Phone number</p>
-                        <div className="row">
-                            <p>+880</p>
-                            <input type="number" name="number" required />
-                        </div>
-                    </div>
-                    <div>
-                        <p>Description</p>
-                        <textarea name="description" required />
-                    </div>
-                    <button>Add room</button>
-
-                </form>
+            <div className="addRoomBtn" onClick={() => setShowForm(true)}>
+                <GoPlus />
             </div>
+            <div className="my_room_car_container">
+                {
+                    roomData?.map(room => <OwnedRoonCard key={room._id} room={room} refetch={refetch} />)
+                }
+            </div>
+
+            {
+                showForm ?
+
+                    <div className="add_room_form">
+                        <form onSubmit={handleAddProduct} >
+                            <div className="cross" onClick={() => setShowForm(false)}>
+                                <RxCross2 />
+                            </div>
+
+                            <div>
+                                <p>Room Name</p>
+                                <input type="text" className="name" required name="name" />
+                            </div>
+
+                            <div>
+                                <p>Address</p>
+                                <input type="text" name="address" required />
+                            </div>
+
+                            <div>
+                                <p>City</p>
+                                <input type="text" name="city" required />
+                            </div>
+                            <div>
+                                <input type="file" accept="image/*" name="photo" className="photoBox" required />
+                            </div>
+                            <div className="bro">
+                                <div>
+                                    <p>Room Size</p>
+                                    <input type="number" name="room_size" required />
+                                </div>
+                                <div>
+                                    <p>Bedrooms</p>
+                                    <input type="number" name="bedrooms" required />
+                                </div>
+
+                                <div>
+                                    <p>Bathrooms</p>
+                                    <input type="number" name="bathrooms" required />
+                                </div>
+                            </div>
+
+                            <div className="bro">
+                                <div>
+                                    <p>Monthly Rent</p>
+                                    <input type="number" name="rent" required />
+                                </div>
+                                <div>
+                                    <p>Availablity Date</p>
+                                    <input type="date" name="date" required />
+                                </div>
+                            </div>
+
+                            <div>
+                                <p>Phone number</p>
+                                <div className="row">
+                                    <p>+880</p>
+                                    <input type="number" name="number" required />
+                                </div>
+                            </div>
+                            <div>
+                                <p>Description</p>
+                                <textarea name="description" required />
+                            </div>
+                            <button>Add room</button>
+
+                        </form>
+                    </div>
+                    :
+                    ""
+            }
+
+
         </div >
     );
 };

@@ -35,7 +35,7 @@ const RoomsCard = ({ room = {} }) => {
                 </div>
             </div>
 
-            <Link to={"/"}>View Rooms</Link>
+            <Link to={`/room/${_id}`}>View Rooms</Link>
 
         </div>
     );

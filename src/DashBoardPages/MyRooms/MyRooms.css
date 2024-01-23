@@ -1,6 +1,36 @@
 .my_rooms_container {
-    position: static;
+    padding: 20px;
 }
+
+.my_room_car_container {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.addRoomBtn {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #695df6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.addRoomBtn:hover {
+    transform: rotate(80deg);
+}
+
+
 
 .add_room_form {
     width: 100vw;
@@ -26,6 +56,17 @@
     background: white;
     box-shadow: 0 2px 16.8px 3.2px #95959578;
     padding: 20px;
+    position: relative;
+}
+
+.add_room_form form .cross {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 26px;
+
 }
 
 .add_room_form form>div {

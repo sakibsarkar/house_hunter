@@ -1,0 +1,37 @@
+.asset_manager {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.assets_table {
+    width: 70%;
+}
+
+.assets_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.assets_table table th {
+    color: white;
+    background-color: #695df6;
+    padding: 6px 5px;
+
+}
+
+.assets_table table td {
+
+    padding: 6px 5px;
+
+}
+
+.assets_table table tr:nth-child(even) {
+
+    background: rgb(238, 238, 238);
+
+}
