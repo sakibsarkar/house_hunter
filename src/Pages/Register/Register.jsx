@@ -78,7 +78,7 @@ const Register = () => {
                 </div>
                 <div>
                     <p>Your password</p>
-                    <input type="pasword" name="password" required />
+                    <input type="password" name="password" required />
                 </div>
                 <div >
                     <p>Your Phone Number</p>
