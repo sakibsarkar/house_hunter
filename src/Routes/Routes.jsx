@@ -1,3 +1,4 @@
+import BookingDetails from "../DashBoardPages/BookingDetails/BookingDetails";
 import DashLayout from "../Layout/DashLayout/DashLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -49,6 +50,10 @@ export const Routes = createBrowserRouter([
             {
                 path: "/dashboard/my_booking",
                 element: <Userprivate><MyBookings /></Userprivate>
+            },
+            {
+                path: "/dashboard/booking_details",
+                element: <Userprivate><BookingDetails /></Userprivate>
             }
         ]
     }

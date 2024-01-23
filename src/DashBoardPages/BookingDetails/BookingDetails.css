@@ -1,0 +1,35 @@
+.boking_details {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.boking_details table {
+    width: 70%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+
+.boking_details table th {
+    color: white;
+    background-color: #695df6;
+    padding: 6px 5px;
+
+}
+
+.boking_details table td {
+
+    padding: 6px 5px;
+
+}
+
+.boking_details table tr:nth-child(even) {
+
+    background: rgb(238, 238, 238);
+
+}
