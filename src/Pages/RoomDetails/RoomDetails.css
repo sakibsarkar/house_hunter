@@ -1,0 +1,60 @@
+.room_details {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.room_big {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.room_big_img {
+    width: 100%;
+    height: 550px;
+}
+
+.room_big_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room_details_info {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.room_details_info .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+
+.room_big button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: #695df6;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.room_big button:hover {
+    width: 96%;
+}
