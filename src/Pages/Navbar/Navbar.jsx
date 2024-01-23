@@ -26,7 +26,7 @@ const Navbar = () => {
                 </div>
                 <div className="nav_links">
                     <NavLink to={"/"}>Home</NavLink>
-                    <NavLink to={"/"}>Explore House</NavLink>
+                    <Link to={"/"}>Explore House</Link>
                 </div>
 
                 <SearchBox />
