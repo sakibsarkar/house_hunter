@@ -58,3 +58,58 @@
 .room_big button:hover {
     width: 96%;
 }
+
+
+
+
+.booking_form {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #56565636;
+}
+
+.booking_form form {
+    width: 400px;
+    position: relative;
+    padding: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking_form form>div {
+    width: 100%;
+}
+
+.booking_form form>div input {
+    width: 100%;
+    outline: none;
+    height: 25px;
+}
+
+.booking_form form button {
+    width: 100%;
+    background-color: #695df6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 7px 0;
+}
+
+.booking_form form .cross {
+    position: absolute;
+    font-size: 18px;
+    cursor: pointer;
+    width: fit-content;
+    right: 10px;
+    top: 10px;
+}

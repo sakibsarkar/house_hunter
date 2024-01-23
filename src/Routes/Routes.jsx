@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import ManageRoom from "../DashBoardPages/ManageRoom/ManageRoom";
+import MyBookings from "../DashBoardPages/MyBookings/MyBookings";
 import MyRooms from "../DashBoardPages/MyRooms/MyRooms";
 import OwnerPrivate from "../PrivateRoutes/OwnerPrivate";
 import Register from "../Pages/Register/Register";
@@ -44,6 +45,10 @@ export const Routes = createBrowserRouter([
             {
                 path: "/dashboard/manage_room",
                 element: <OwnerPrivate><ManageRoom /></OwnerPrivate>
+            },
+            {
+                path: "/dashboard/my_booking",
+                element: <Userprivate><MyBookings /></Userprivate>
             }
         ]
     }

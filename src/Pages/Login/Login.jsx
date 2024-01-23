@@ -1,12 +1,13 @@
 import "./Login.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Context } from "../../Hooks & Functions/Authcontext";
 
 const Login = () => {
     const axios = UseAxios()
+    const location = useLocation()
     const navigate = useNavigate()
 
     const { setUser } = useContext(Context)
@@ -28,7 +29,8 @@ const Login = () => {
         }
 
         await axios.post("/token", { email, password })
-
+        const address = data?.role === "House Owner" ? "/dashboard/my_rooms" : "/dashboard/my_booking"
+        navigate(address)
         setUser(data)
     }
     return (

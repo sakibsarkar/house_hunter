@@ -31,8 +31,10 @@ const Register = () => {
             email,
             phoneNumber: `+880${phoneNumber}`,
             password,
-            role
+            role,
+            bookedRoom: []
         }
+
 
 
         if (!bdPhoneNumberRegex.test(`+880${phoneNumber}`)) {
@@ -52,7 +54,8 @@ const Register = () => {
             })
 
             setUser(obj)
-            navigate("/")
+            const address = role === "House Owner" ? "/dashboard/my_rooms" : "/dashboard/my_booking"
+            navigate(address)
 
         }
         catch (err) {

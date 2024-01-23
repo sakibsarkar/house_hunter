@@ -1,0 +1,38 @@
+.booking_card {
+    width: 100%;
+    height: 310px;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0 2px 16.8px 3.2px #95959578;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.booking_img {
+    width: 100%;
+    height: 150px;
+}
+
+.booking_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.bookingInfo {
+    padding: 0 0 0 10px;
+}
+
+.booking_card button {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    padding: 7px 0;
+    border: none;
+    color: white;
+    background-color: #695df6;
+    border-radius: 5px;
+    cursor: pointer;
+}
