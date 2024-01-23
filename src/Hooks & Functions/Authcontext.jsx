@@ -4,25 +4,26 @@ import { createContext, useEffect, useState } from "react";
 export const Context = createContext(null)
 
 const Authcontext = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
     const axios = UseAxios()
 
     useEffect(() => {
-        const unSubscribe = async () => {
-            setLoading(true)
-            const { data } = await axios.get("/authChange")
-            setUser(data)
-            setLoading(false)
-        }
 
-        unSubscribe()
-        return () => unSubscribe
+        setLoading(true)
+        axios.get("/authChange")
+            .then(({ data }) => {
+                setUser(data)
+                setLoading(false)
+            })
+
+
+
     }, [axios])
 
     const items = {
         user,
-        setUser,loading
+        setUser, loading
     }
     return (
         <Context.Provider value={items}>

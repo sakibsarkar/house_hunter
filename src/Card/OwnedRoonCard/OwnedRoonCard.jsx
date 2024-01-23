@@ -1,4 +1,5 @@
 import "./OwnedRoonCard.css";
+import BookingDetailsModal from "../../Components/BookingDetailsModal/BookingDetailsModal";
 import RoomUpdateForm from "../../Components/RoomUpdateForm/RoomUpdateForm";
 import { useState } from "react";
 import { LuPencil } from "react-icons/lu";
@@ -7,11 +8,17 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const OwnedRoonCard = ({ room, refetch }) => {
     const { _id, name, city, bedrooms, bathrooms, room_size, availability, rent_per_month, image, description, ownedBy, ownerPhone, address, isAvailable } = room || {}
 
-
+    const [showBookingDetails, setShowBookingDetails] = useState(false)
 
     return (
         <div className="asset_card">
+
             <div className="asset_img">
+                {
+                    !isAvailable ?
+                        <p className="booked">Booked</p>
+                        : ""
+                }
                 <img src={image} alt="" />
             </div>
             <div className="asset_info">
@@ -30,7 +37,18 @@ const OwnedRoonCard = ({ room, refetch }) => {
                 </div>
 
             </div>
-        
+
+            {
+                !isAvailable ?
+                    <button className="viewDetails" onClick={() => setShowBookingDetails(true)}>View Booking Details</button> : ""
+            }
+
+
+            {
+                showBookingDetails ?
+                    <BookingDetailsModal id={_id} setShowBookingDetails={setShowBookingDetails} /> : ""
+            }
+
         </div>
     );
 };

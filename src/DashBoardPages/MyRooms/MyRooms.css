@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: repeat(3, 350px);
     justify-content: flex-start;
+    justify-content: center;
     gap: 20px;
 }
 

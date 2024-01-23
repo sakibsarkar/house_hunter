@@ -1,0 +1,33 @@
+.booking_details {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+    top: 0;
+    left: 0;
+    background-color: rgba(119, 119, 119, 0.334);
+}
+
+.detail_box {
+    width: 400px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 5px;
+    gap: 10px;
+    flex-direction: column;
+    position: relative;
+}
+
+.detail_box .cancel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

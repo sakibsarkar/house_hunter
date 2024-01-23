@@ -4,8 +4,24 @@
     padding: 0 0 10px 0;
 }
 
+.booked {
+    position: absolute;
+    transform: rotate(45deg);
+    right: -27px;
+    top: 24px;
+    background: #695df6;
+    width: 36%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
 .asset_img {
     width: 100%;
+    position: relative;
+    overflow: hidden;
     height: 200px;
 }
 
@@ -46,5 +62,19 @@
     padding: 3px 0;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
+}
+
+.viewDetails {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #695df6;
+    color: white;
+    padding: 5px 0;
+    border-radius: 5px;
     cursor: pointer;
 }

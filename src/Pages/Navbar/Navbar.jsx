@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         await axios.post("/logout")
-        setUser(null)
+        setUser(undefined)
     }
     return (
         <nav>
