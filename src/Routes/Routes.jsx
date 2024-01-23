@@ -1,5 +1,6 @@
 import BookingDetails from "../DashBoardPages/BookingDetails/BookingDetails";
 import DashLayout from "../Layout/DashLayout/DashLayout";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -16,6 +17,7 @@ export const Routes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -38,6 +40,7 @@ export const Routes = createBrowserRouter([
     {
         path: "/dashboard",
         element: <DashLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/dashboard/my_rooms",
